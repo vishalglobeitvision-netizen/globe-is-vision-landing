@@ -39,7 +39,7 @@ export function Services() {
                 <Reveal key={service.id} delay={i * 0.09} y={40}>
                   <article
                     onClick={() => handleOpenService(service)}
-                    className="group relative h-full overflow-hidden rounded-3xl border border-border bg-surface/50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-surface cursor-pointer text-left"
+                    className="group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/50 p-5 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-surface cursor-pointer text-left"
                     style={{ boxShadow: "var(--shadow-card)" }}
                     role="button"
                     tabIndex={0}
@@ -57,8 +57,8 @@ export function Services() {
                       aria-hidden
                     />
                     <div className="relative flex items-center justify-between">
-                      <span className="bg-brand-gradient flex size-12 items-center justify-center rounded-2xl">
-                        <Icon className="size-6 text-primary-foreground" aria-hidden />
+                      <span className="bg-brand-gradient flex size-11 sm:size-12 items-center justify-center rounded-2xl shrink-0">
+                        <Icon className="size-5 sm:size-6 text-primary-foreground" aria-hidden />
                       </span>
                       <span className="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary uppercase tracking-wider">
                         <Sparkles className="size-3" />
@@ -66,7 +66,7 @@ export function Services() {
                       </span>
                     </div>
 
-                    <h3 className="relative mt-2 text-xl font-semibold group-hover:text-primary transition-colors">
+                    <h3 className="relative mt-3 text-lg sm:text-xl font-semibold group-hover:text-primary transition-colors break-words hyphens-auto">
                       {service.title}
                     </h3>
                     <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground line-clamp-3">

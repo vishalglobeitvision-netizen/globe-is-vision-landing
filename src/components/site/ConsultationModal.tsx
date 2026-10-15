@@ -118,11 +118,11 @@ export function ConsultationModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-xl border-slate-200 bg-white p-0 text-slate-900 shadow-2xl sm:rounded-2xl overflow-hidden">
+      <DialogContent className="w-[calc(100vw-1.5rem)] sm:w-full max-w-xl border-slate-200 bg-white p-0 text-slate-900 shadow-2xl rounded-2xl overflow-hidden max-h-[calc(100dvh-2.5rem)] sm:max-h-[90vh] flex flex-col">
         {/* Header accent strip */}
-        <div className="h-2 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500" />
+        <div className="h-1.5 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 shrink-0" />
 
-        <div className="p-6 sm:p-8">
+        <div className="flex-1 overflow-y-auto overscroll-contain p-4 sm:p-8">
           {submitted ? (
             <div className="py-8 text-center space-y-4">
               <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/50">
@@ -141,15 +141,15 @@ export function ConsultationModal({
             </div>
           ) : (
             <>
-              <DialogHeader className="text-left space-y-2">
+              <DialogHeader className="text-left space-y-2 pr-10">
                 <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-700/10">
                   <Sparkles className="size-3.5" />
                   Free 30-Minute Architecture & Strategy Session
                 </div>
-                <DialogTitle className="text-2xl font-bold tracking-tight text-slate-900">
+                <DialogTitle className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 break-words hyphens-auto">
                   Book a Free Consultation
                 </DialogTitle>
-                <DialogDescription className="text-sm text-slate-600 leading-relaxed">
+                <DialogDescription className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   Discuss your project scope, architecture, or digital roadmap with Globe IT Vision specialists.
                 </DialogDescription>
               </DialogHeader>

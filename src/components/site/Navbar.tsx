@@ -181,7 +181,7 @@ export function Navbar() {
       <header
         ref={navRef}
         className={cn(
-          "sticky top-0 z-50 w-full bg-white transition-all duration-200 border-b",
+          "sticky top-0 z-40 w-full bg-white transition-all duration-200 border-b",
           scrolled
             ? "border-slate-200 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] py-2.5"
             : "border-slate-100 shadow-[0_1px_3px_0_rgba(0,0,0,0.03)] py-3.5",
@@ -213,14 +213,14 @@ export function Navbar() {
             <a
               href="/#home"
               onClick={(e) => {
-                if (window.location.pathname === "/" || window.location.pathname === "") {
+                if (typeof window !== "undefined" && (window.location.pathname === "/" || window.location.pathname === "")) {
                   e.preventDefault();
                   handleLinkClick("/#home");
                 }
               }}
               className={cn(
                 "relative rounded-full px-3.5 py-1.5 text-sm font-medium transition-all duration-150",
-                activeSection === "home" && (typeof window === "undefined" || window.location.pathname === "/" || window.location.pathname === "")
+                activeSection === "home" && (typeof window === "undefined" || window.location?.pathname === "/" || window.location?.pathname === "")
                   ? "bg-blue-50 text-blue-600 font-semibold"
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70",
               )}

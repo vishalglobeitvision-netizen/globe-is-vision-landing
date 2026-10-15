@@ -187,134 +187,112 @@ function SolutionsPage() {
           ))}
         </div>
 
-        {/* Detailed Solutions Grid */}
-        <div className="mt-12 space-y-12">
+        {/* Solutions Cards Grid */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredSolutions.map((solution) => {
             const Icon = solution.icon;
             return (
-              <section
+              <article
                 key={solution.id}
                 id={solution.id}
-                className="scroll-mt-24 rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-10 shadow-sm transition-all hover:shadow-md"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-5 sm:p-7 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-indigo-500/40 hover:-translate-y-1.5 scroll-mt-24 text-left"
               >
-                <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
-                  {/* Left Column: Overview */}
-                  <div className="lg:col-span-7 space-y-5">
-                    <div className="flex items-center gap-3">
-                      <div className="flex size-14 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 ring-4 ring-indigo-50/60 shrink-0">
-                        <Icon className="size-7" />
-                      </div>
-                      <div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-50 px-3 py-0.5 text-xs font-bold text-indigo-700">
-                          <Sparkles className="size-3" />
-                          {solution.badge}
-                        </span>
-                      </div>
+                {/* Top gradient accent */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 opacity-80 group-hover:opacity-100 transition-opacity" />
+
+                <div>
+                  {/* Header: Icon + Badge */}
+                  <div className="flex items-center justify-between gap-3 pt-1">
+                    <div className="flex size-12 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600 ring-4 ring-indigo-50/60 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                      <Icon className="size-6" />
                     </div>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] font-bold text-indigo-700">
+                      <Sparkles className="size-3" />
+                      {solution.badge}
+                    </span>
+                  </div>
 
-                    <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
-                      {solution.title}
-                    </h2>
+                  {/* Title */}
+                  <h2 className="mt-5 text-xl font-bold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors break-words">
+                    {solution.title}
+                  </h2>
 
-                    <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                      {solution.fullDesc}
-                    </p>
+                  {/* Description */}
+                  <p className="mt-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
+                    {solution.shortDesc || solution.fullDesc}
+                  </p>
 
-                    {/* Core Capabilities */}
-                    <div className="pt-2">
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5 mb-3">
-                        <Layers className="size-3.5 text-indigo-600" />
-                        <span>Core Capabilities &amp; Architecture</span>
-                      </h3>
-                      <div className="grid gap-2 sm:grid-cols-2">
-                        {solution.capabilities.map((cap) => (
-                          <div
-                            key={cap}
-                            className="flex items-start gap-2 text-xs font-medium text-slate-700"
-                          >
-                            <CheckCircle2 className="size-4 text-emerald-600 shrink-0 mt-0.5" />
-                            <span>{cap}</span>
-                          </div>
-                        ))}
-                      </div>
+                  {/* Core Capabilities Preview */}
+                  <div className="mt-5 pt-4 border-t border-slate-100 space-y-2">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+                      <Layers className="size-3 text-indigo-600" />
+                      <span>Key Solution Scope</span>
                     </div>
-
-                    {/* Technologies */}
-                    <div className="pt-2">
-                      <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5 mb-2.5">
-                        <Cpu className="size-3.5 text-indigo-600" />
-                        <span>Architecture &amp; Frameworks</span>
-                      </h3>
-                      <div className="flex flex-wrap gap-1.5">
-                        {solution.technologies.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="space-y-1.5">
+                      {solution.capabilities.slice(0, 3).map((cap) => (
+                        <div key={cap} className="flex items-start gap-2 text-xs text-slate-700">
+                          <CheckCircle2 className="size-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                          <span className="line-clamp-1 font-medium">{cap}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Right Column: Outcomes & Actions */}
-                  <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6 rounded-2xl border border-slate-100 bg-slate-50/70 p-6 sm:p-7">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-600">
-                        <Zap className="size-4 text-indigo-600" />
-                        <span>Business Impact &amp; Outcomes</span>
-                      </div>
-
-                      <div className="space-y-2">
-                        {solution.benefits.map((b) => (
-                          <div
-                            key={b}
-                            className="flex items-start gap-2.5 text-xs text-slate-700 font-medium"
-                          >
-                            <span className="size-1.5 rounded-full bg-indigo-600 mt-1.5 shrink-0" />
-                            <span>{b}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="border-t border-slate-200/80 pt-4">
-                        <span className="text-xs font-semibold text-slate-800 block mb-2">
-                          Standard Deliverables:
-                        </span>
-                        <ul className="space-y-1 text-xs text-slate-600">
-                          {solution.deliverables.map((del) => (
-                            <li key={del} className="flex items-center gap-2">
-                              <span className="size-1 rounded-full bg-slate-400" />
-                              <span>{del}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  {/* Technologies Preview */}
+                  <div className="mt-4 pt-3 border-t border-slate-100/80">
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5 mb-2">
+                      <Cpu className="size-3 text-indigo-600" />
+                      <span>Architecture &amp; Frameworks</span>
                     </div>
-
-                    {/* Dual Action Buttons */}
-                    <div className="pt-4 border-t border-slate-200/80 space-y-2.5">
-                      <Button
-                        onClick={() => handleOpenSolutionModal(solution)}
-                        variant="outline"
-                        className="w-full rounded-xl border-slate-300 bg-white hover:bg-slate-100 text-slate-800 font-semibold cursor-pointer"
-                      >
-                        <span>View Details</span>
-                        <ArrowUpRight className="ml-1.5 size-4" />
-                      </Button>
-
-                      <Button
-                        onClick={() => handleBookConsultation(solution.title)}
-                        className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold shadow-md shadow-blue-500/20 cursor-pointer"
-                      >
-                        <span>Book Consultation for this Solution</span>
-                        <ArrowRight className="ml-2 size-4" />
-                      </Button>
+                    <div className="flex flex-wrap gap-1.5">
+                      {solution.technologies.slice(0, 4).map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-md border border-slate-200/90 bg-slate-50 px-2 py-0.5 text-[11px] font-medium text-slate-700"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                      {solution.technologies.length > 4 && (
+                        <span className="rounded-md bg-slate-100 px-1.5 py-0.5 text-[11px] font-semibold text-slate-500">
+                          +{solution.technologies.length - 4} more
+                        </span>
+                      )}
                     </div>
                   </div>
+
+                  {/* Key Outcome Pill */}
+                  {solution.benefits?.[0] && (
+                    <div className="mt-4 rounded-xl border border-indigo-100/80 bg-indigo-50/40 p-3 text-xs text-slate-700 flex items-start gap-2">
+                      <Zap className="size-3.5 text-indigo-600 shrink-0 mt-0.5" />
+                      <span className="line-clamp-2 leading-relaxed font-medium">
+                        {solution.benefits[0]}
+                      </span>
+                    </div>
+                  )}
                 </div>
-              </section>
+
+                {/* Dual Action Buttons */}
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+                  <Button
+                    onClick={() => handleOpenSolutionModal(solution)}
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 rounded-xl border-slate-200 text-slate-700 hover:bg-slate-50 font-semibold text-xs h-9 cursor-pointer"
+                  >
+                    <span>View Details</span>
+                    <ArrowUpRight className="ml-1 size-3.5" />
+                  </Button>
+                  <Button
+                    onClick={() => handleBookConsultation(solution.title)}
+                    size="sm"
+                    className="flex-1 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold text-xs h-9 shadow-sm shadow-blue-500/20 cursor-pointer"
+                  >
+                    <span>Consultation</span>
+                    <ArrowRight className="ml-1 size-3.5" />
+                  </Button>
+                </div>
+              </article>
             );
           })}
         </div>

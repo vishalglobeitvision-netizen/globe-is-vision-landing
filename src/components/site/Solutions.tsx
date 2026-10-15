@@ -39,7 +39,7 @@ export function Solutions() {
                 <Reveal key={s.id} delay={i * 0.09} y={40}>
                   <div
                     onClick={() => handleOpenSolution(s)}
-                    className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-surface/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-surface cursor-pointer text-left"
+                    className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-surface/40 p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-surface cursor-pointer text-left"
                     role="button"
                     tabIndex={0}
                     onKeyDown={(e) => {
@@ -52,7 +52,7 @@ export function Solutions() {
                   >
                     <div>
                       <div className="flex items-center justify-between">
-                        <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                        <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground shrink-0">
                           <Icon className="size-5" aria-hidden />
                         </span>
                         <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary/80 uppercase tracking-wider">
@@ -60,7 +60,7 @@ export function Solutions() {
                           {s.badge}
                         </span>
                       </div>
-                      <h3 className="mt-4 text-base font-semibold group-hover:text-primary transition-colors">
+                      <h3 className="mt-4 text-base font-semibold group-hover:text-primary transition-colors break-words hyphens-auto">
                         {s.title}
                       </h3>
                       <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground line-clamp-3">
