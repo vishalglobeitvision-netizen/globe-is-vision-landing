@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
+import { CookieConsent } from "@/components/site/CookieConsent";
 
 import appCss from "../styles.css?url";
 
@@ -74,21 +75,37 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vision Scale Craft" },
-      { name: "description", content: "Vision Scale Craft Application" },
-      { name: "author", content: "Vision Scale Craft" },
-      { property: "og:title", content: "Vision Scale Craft" },
-      { property: "og:description", content: "Vision Scale Craft Application" },
+      { title: "Globe IT Vision | Technology & Digital Transformation Solutions" },
+      {
+        name: "description",
+        content:
+          "Globe IT Vision delivers innovative software development, cloud, AI, analytics and digital transformation solutions for businesses worldwide.",
+      },
+      { name: "author", content: "Globe IT Vision" },
+      {
+        property: "og:title",
+        content: "Globe IT Vision | Technology & Digital Transformation Solutions",
+      },
+      {
+        property: "og:description",
+        content:
+          "Globe IT Vision delivers innovative software development, cloud, AI, analytics and digital transformation solutions for businesses worldwide.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/logo-square.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@VisionScaleCraft" },
+      { name: "twitter:site", content: "@GlobeITVision" },
+      { name: "twitter:image", content: "/logo-square.png" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
     ],
   }),
   scripts: () => [
@@ -127,6 +144,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <CookieConsent />
     </QueryClientProvider>
   );
 }

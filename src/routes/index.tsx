@@ -43,7 +43,8 @@ export const Route = createFileRoute("/")({
           slogan: "Transforming Ideas. Powering the Future.",
           description: DESCRIPTION,
           email: "talent@globeitvision.com",
-          astro: undefined,
+          logo: "https://www.globeitvision.com/logo-square.png",
+          image: "https://www.globeitvision.com/logo-square.png",
         }),
       },
     ],
@@ -53,9 +54,11 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen">
+      {/* Static White Navbar (Sticky on scroll) */}
+      <Navbar />
+
       {/* Dark Navy Section */}
       <div className="dark bg-background text-foreground">
-        <Navbar />
         <main>
           <Hero />
         </main>
