@@ -36,7 +36,7 @@ export function Services() {
             {SERVICES_DATA.slice(0, 6).map((service, i) => {
               const Icon = service.icon;
               return (
-                <Reveal key={service.id} delay={i * 0.06}>
+                <Reveal key={service.id} delay={i * 0.09} y={40}>
                   <article
                     onClick={() => handleOpenService(service)}
                     className="group relative h-full overflow-hidden rounded-3xl border border-border bg-surface/50 p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:bg-surface cursor-pointer text-left"
@@ -88,19 +88,21 @@ export function Services() {
             })}
           </div>
 
-          <div className="mt-12 flex justify-center">
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full border-primary/25 bg-primary/5 text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5 text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/20 gap-2.5"
-            >
-              <a href="/services">
-                <span>Explore All Services</span>
-                <ArrowRight className="size-4" />
-              </a>
-            </Button>
-          </div>
+          <Reveal delay={0.25} y={20}>
+            <div className="mt-12 flex justify-center">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-full border-primary/25 bg-primary/5 text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5 text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/20 gap-2.5"
+              >
+                <a href="/services">
+                  <span>Explore All Services</span>
+                  <ArrowRight className="size-4" />
+                </a>
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
 

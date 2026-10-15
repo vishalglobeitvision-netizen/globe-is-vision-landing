@@ -37,19 +37,23 @@ function Counter({ value, suffix, active }: { value: number; suffix: string; act
 
 export function Stats() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-20px" });
 
   return (
     <section className="relative py-8" aria-label="Company statistics">
       <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
-        <Reveal>
+        <Reveal y={30}>
           <div
             ref={ref}
             className="glass-panel grid gap-8 rounded-3xl p-8 sm:grid-cols-2 md:p-12 lg:grid-cols-5"
             style={{ boxShadow: "var(--shadow-card)" }}
           >
-            {STATS.map((stat) => (
-              <div key={stat.label} className="text-center lg:text-left">
+            {STATS.map((stat, i) => (
+              <div
+                key={stat.label}
+                className="text-center lg:text-left transition-all duration-300 hover:-translate-y-1"
+                style={{ transitionDelay: `${i * 50}ms` }}
+              >
                 <Counter value={stat.value} suffix={stat.suffix} active={inView} />
                 <p className="mt-2 text-sm font-medium text-muted-foreground">{stat.label}</p>
               </div>

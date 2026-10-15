@@ -79,7 +79,7 @@ export function CTA() {
   return (
     <section id="contact" className="section-pad relative">
       <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
-        <Reveal>
+        <Reveal y={40} scale={0.97}>
           <div className="relative overflow-hidden rounded-[2rem] border border-border px-7 py-16 text-center md:px-16 md:py-20">
             <div
               className="pointer-events-none absolute inset-0 opacity-95"

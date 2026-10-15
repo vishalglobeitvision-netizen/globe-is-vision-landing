@@ -49,7 +49,7 @@ export function Portfolio() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {CASES.map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.07}>
+            <Reveal key={c.title} delay={i * 0.14} y={50}>
               <article
                 className="group h-full overflow-hidden rounded-3xl border border-border bg-surface/40 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40"
                 style={{ boxShadow: "var(--shadow-card)" }}

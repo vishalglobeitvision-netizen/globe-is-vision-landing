@@ -56,7 +56,7 @@ const STEPS = [
 
 export function Process() {
   return (
-    <section className="section-pad relative">
+    <section id="process" className="section-pad relative">
       <div className="mx-auto w-full max-w-7xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Our process"
@@ -68,7 +68,7 @@ export function Process() {
           {STEPS.map((step, i) => {
             const Icon = step.icon;
             return (
-              <Reveal key={step.n} delay={i * 0.06}>
+              <Reveal key={step.n} delay={i * 0.1} y={45}>
                 <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/70 bg-surface/40 p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan/40 hover:bg-surface/70 hover:shadow-xl hover:shadow-cyan/5">
                   <div
                     className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10"

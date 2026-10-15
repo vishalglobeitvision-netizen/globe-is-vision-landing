@@ -1,5 +1,5 @@
 import { Quote, Star, CheckCircle2 } from "lucide-react";
-import { SectionHeading } from "./Reveal";
+import { Reveal, SectionHeading } from "./Reveal";
 
 interface TestimonialItem {
   id: string;
@@ -115,62 +115,64 @@ export function Testimonials() {
       </div>
 
       {/* Marquee slider track container with gradient fade masks */}
-      <div className="relative mt-14 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_4%,black_96%,transparent)]">
-        <div className="flex w-max gap-6 animate-marquee-testimonials hover:[animation-play-state:paused] py-4">
-          {loopedClients.map((client, i) => (
-            <figure
-              key={`${client.id}-${i}`}
-              className="group relative flex w-[350px] sm:w-[420px] shrink-0 flex-col justify-between rounded-3xl border border-border/80 bg-surface/50 p-7 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-surface hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/5"
-            >
-              <div>
-                {/* Header: Star Rating & Impact Badge */}
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-1" aria-label="Rated 5 out of 5 stars">
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <Star key={s} className="size-4 fill-amber-400 text-amber-400" aria-hidden />
-                    ))}
-                  </div>
-                  <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
-                    {client.impactBadge}
-                  </span>
-                </div>
-
-                {/* Quote Icon & Text */}
-                <div className="relative mt-5">
-                  <Quote className="size-8 text-primary/20 absolute -top-2 -left-1 -z-10" aria-hidden />
-                  <blockquote className="text-sm sm:text-base leading-relaxed text-foreground/90 font-normal">
-                    “{client.quote}”
-                  </blockquote>
-                </div>
-              </div>
-
-              {/* Client Info Footer */}
-              <figcaption className="mt-6 flex items-center gap-3.5 border-t border-border/60 pt-4">
-                <div
-                  className={`flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${client.avatarGradient} text-white font-bold text-sm shadow-md`}
-                  aria-hidden
-                >
-                  {client.initials}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5">
-                    <span className="truncate text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {client.name}
+      <Reveal delay={0.15} y={30}>
+        <div className="relative mt-14 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_4%,black_96%,transparent)]">
+          <div className="flex w-max gap-6 animate-marquee-testimonials hover:[animation-play-state:paused] py-4">
+            {loopedClients.map((client, i) => (
+              <figure
+                key={`${client.id}-${i}`}
+                className="group relative flex w-[350px] sm:w-[420px] shrink-0 flex-col justify-between rounded-3xl border border-border/80 bg-surface/50 p-7 sm:p-8 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:bg-surface hover:-translate-y-1.5 hover:shadow-xl hover:shadow-primary/5"
+              >
+                <div>
+                  {/* Header: Star Rating & Impact Badge */}
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-1" aria-label="Rated 5 out of 5 stars">
+                      {Array.from({ length: 5 }).map((_, s) => (
+                        <Star key={s} className="size-4 fill-amber-400 text-amber-400" aria-hidden />
+                      ))}
+                    </div>
+                    <span className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
+                      {client.impactBadge}
                     </span>
-                    <CheckCircle2 className="size-3.5 shrink-0 text-primary" aria-label="Verified Client" />
                   </div>
-                  <span className="block truncate text-xs text-muted-foreground">
-                    {client.role} • <strong className="text-foreground/80 font-medium">{client.company}</strong>
-                  </span>
-                  <span className="block text-[11px] text-muted-foreground/75 font-mono">
-                    {client.location}
-                  </span>
+
+                  {/* Quote Icon & Text */}
+                  <div className="relative mt-5">
+                    <Quote className="size-8 text-primary/20 absolute -top-2 -left-1 -z-10" aria-hidden />
+                    <blockquote className="text-sm sm:text-base leading-relaxed text-foreground/90 font-normal">
+                      “{client.quote}”
+                    </blockquote>
+                  </div>
                 </div>
-              </figcaption>
-            </figure>
-          ))}
+
+                {/* Client Info Footer */}
+                <figcaption className="mt-6 flex items-center gap-3.5 border-t border-border/60 pt-4">
+                  <div
+                    className={`flex size-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${client.avatarGradient} text-white font-bold text-sm shadow-md`}
+                    aria-hidden
+                  >
+                    {client.initials}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-1.5">
+                      <span className="truncate text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {client.name}
+                      </span>
+                      <CheckCircle2 className="size-3.5 shrink-0 text-primary" aria-label="Verified Client" />
+                    </div>
+                    <span className="block truncate text-xs text-muted-foreground">
+                      {client.role} • <strong className="text-foreground/80 font-medium">{client.company}</strong>
+                    </span>
+                    <span className="block text-[11px] text-muted-foreground/75 font-mono">
+                      {client.location}
+                    </span>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -242,16 +242,20 @@
 @keyframes dropdown-slow {
   from {
     opacity: 0;
-    transform: translateY(-8px) scale(0.985);
+    transform: translateY(-12px) scale(0.97);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: blur(0px);
   }
 }
 
 @utility animate-dropdown-slow {
-  animation: dropdown-slow 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: dropdown-slow 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top center;
+  will-change: transform, opacity, filter;
 }
 
 html {

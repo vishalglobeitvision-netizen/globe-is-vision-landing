@@ -250,7 +250,7 @@ export function Navbar() {
                 <span>Services</span>
                 <ChevronDown
                   className={cn(
-                    "size-4 transition-transform duration-300",
+                    "size-4 transition-transform duration-500 ease-out",
                     activeDropdown === "services" && "rotate-180 text-blue-600",
                   )}
                 />
@@ -357,7 +357,7 @@ export function Navbar() {
                 <span>Solutions</span>
                 <ChevronDown
                   className={cn(
-                    "size-4 transition-transform duration-300",
+                    "size-4 transition-transform duration-500 ease-out",
                     activeDropdown === "solutions" && "rotate-180 text-blue-600",
                   )}
                 />

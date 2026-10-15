@@ -64,7 +64,7 @@ export function Industries() {
         />
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {INDUSTRIES.map((ind, i) => (
-            <Reveal key={ind.name} delay={i * 0.05}>
+            <Reveal key={ind.name} delay={i * 0.08} y={40}>
               <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/70 bg-surface/40 p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan/40 hover:bg-surface/70 hover:shadow-xl hover:shadow-cyan/5">
                 <div
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10"

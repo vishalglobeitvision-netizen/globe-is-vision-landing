@@ -37,7 +37,7 @@ export function WhyUs() {
         <SectionHeading eyebrow="Why us" title="Why Businesses Choose Globe IT Vision" />
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {PILLARS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.08}>
+            <Reveal key={p.title} delay={i * 0.12} y={45}>
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}

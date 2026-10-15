@@ -36,7 +36,7 @@ export function Solutions() {
             {SOLUTIONS_DATA.slice(0, 6).map((s, i) => {
               const Icon = s.icon;
               return (
-                <Reveal key={s.id} delay={i * 0.05}>
+                <Reveal key={s.id} delay={i * 0.09} y={40}>
                   <div
                     onClick={() => handleOpenSolution(s)}
                     className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-surface/40 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-surface cursor-pointer text-left"
@@ -78,19 +78,21 @@ export function Solutions() {
             })}
           </div>
 
-          <div className="mt-12 flex justify-center">
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full border-primary/25 bg-primary/5 text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5 text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/20 gap-2.5"
-            >
-              <a href="/solutions">
-                <span>Explore All Solutions</span>
-                <ArrowRight className="size-4" />
-              </a>
-            </Button>
-          </div>
+          <Reveal delay={0.25} y={20}>
+            <div className="mt-12 flex justify-center">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-full border-primary/25 bg-primary/5 text-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3.5 text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-primary/20 gap-2.5"
+              >
+                <a href="/solutions">
+                  <span>Explore All Solutions</span>
+                  <ArrowRight className="size-4" />
+                </a>
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
 

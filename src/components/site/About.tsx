@@ -25,7 +25,7 @@ export function About() {
     <section id="about" className="section-pad relative">
       <div className="mx-auto grid w-full max-w-7xl gap-10 lg:gap-14 px-5 lg:grid-cols-2 lg:px-8">
         {/* Left Column: Image Card stretched to match right column height perfectly */}
-        <Reveal className="h-full">
+        <Reveal className="h-full" x={-30} y={0}>
           <div
             className="relative h-full min-h-[460px] lg:min-h-full w-full overflow-hidden rounded-3xl border border-border bg-[#020817]"
             style={{ boxShadow: "var(--shadow-card)" }}
@@ -66,7 +66,7 @@ export function About() {
 
           <div className="grid gap-3.5 pt-6 lg:pt-0">
             {VALUES.map((v, i) => (
-              <Reveal key={v.title} delay={0.1 + i * 0.08}>
+              <Reveal key={v.title} delay={0.15 + i * 0.12} x={25} y={0}>
                 <div className="flex items-center gap-4 rounded-2xl border border-border bg-surface/40 p-4 sm:p-5 transition-colors hover:border-primary/40 hover:bg-surface">
                   <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-cyan">
                     <v.icon className="size-5" aria-hidden />
